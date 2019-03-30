@@ -174,3 +174,26 @@ https://stackoverflow.com/questions/44455538/css-keyframe-phone-vibrate
   animation-name: pulse;
   animation-duration: 0.5s;
 }
+
+
+@media only screen and (max-width: 600px) {
+    .deck {
+        width: 360px;
+        min-height: 450px;
+        padding: 20px 10px;
+    }
+
+    .deck .card {
+        width: 80px;
+        height: 90px;
+    }
+    #won-game
+    {
+        font-size: 15px;
+        top: 18%;
+        left: 2%;
+    }
+
+}
+
+}

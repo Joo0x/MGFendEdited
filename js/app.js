@@ -7,11 +7,15 @@
  const deckofCards = document.querySelector('.deck');
  const movesa = document.querySelector('.moves');
  const redo = document.querySelector('.restart');
- let matched = 0;
  //can get teh stars by query the length of stars:-)
  let usrstars = 3;
- let openCards = [];
  let moves = 0;
+ let time = 0;
+ let matched = 0;
+ let clockId;
+  let openCards = [];
+ let clockOff = true;
+
 
 
 
@@ -86,6 +90,13 @@ function shuffle(array) {
 function showSymbol(evt)
 {
     const clickedCard = evt.target;
+    if(clockOff === true)
+    {
+        clockOff = false;
+        startClock();
+
+    };
+
     if(clickedCard.classList.contains('card') && !clickedCard.classList.contains('match') && openCards.length < 2  && !openCards.includes(clickedCard))
     {
         openCard(clickedCard);
@@ -188,11 +199,40 @@ function stars() {
 
 //make the div visable and change the inner html with Template
 function toggoleWon() {
+    stopClock();
     const wonMsg = document.getElementById('won-game');
+    const clockTime = document.querySelector('.clock').innerHTML;
     wonMsg.style.visibility= "visible";
-    wonMsg.innerHTML= `<h2>Congratulations! You Won !</h2><p>with ${moves} Moves and ${usrstars} Stars}</p><p>Prees the restart button if u want to play again :-)</p>`;
+    wonMsg.innerHTML= `<h2>Congratulations! You Won !</h2><p>with ${moves} Moves and ${usrstars} Stars , You finish within ${clockTime}.</p><p>Prees the restart button if u want to play again :-)</p>`;
 
 };
+
+
+//time function [stackoverflow]
+function startClock() {
+    clockId = setInterval(() => {
+        time++;
+        displayTime();
+    }, 1000);
+};
+
+function displayTime() {
+    const clock = document.querySelector('.clock');
+    const minutes = Math.floor(time / 60);
+    const seconds = time % 60;
+
+    if (seconds < 10) {
+        clock.innerHTML = `${minutes}:0${seconds}`;
+    } else {
+        clock.innerHTML = `${minutes}:${seconds}`;
+    }
+};
+
+function stopClock() {
+    clearInterval(clockId);
+};
+
+
 
 //Reload Page to restart the game
 redo.addEventListener('click',function () {
