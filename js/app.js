@@ -85,7 +85,7 @@ function shuffle(array) {
  */
 
  deckofCards.addEventListener('click' , showSymbol);
-
+ 
 //show the card symbol
 function showSymbol(evt)
 {
@@ -186,10 +186,11 @@ function stars() {
             removeStars.pop().remove();
             usrstars--;
             break;
-        case 22:
-            removeStars.pop().remove();
-            usrstars--;
-            break;
+        // will be @ 1 star
+        // case 22:
+        //     removeStars.pop().remove();
+        //     usrstars--;
+        //     break;
 
         default:
 
@@ -200,10 +201,17 @@ function stars() {
 //make the div visable and change the inner html with Template
 function toggoleWon() {
     stopClock();
+    const wonBtn = document.createElement('button');
     const wonMsg = document.getElementById('won-game');
     const clockTime = document.querySelector('.clock').innerHTML;
     wonMsg.style.visibility= "visible";
+    wonBtn.classList.add('wonBtn')
+    wonBtn.textContent = "Replay"
     wonMsg.innerHTML= `<h2>Congratulations! You Won !</h2><p>with ${moves} Moves and ${usrstars} Stars , You finish within ${clockTime}.</p><p>Prees the restart button if u want to play again :-)</p>`;
+    wonMsg.appendChild(wonBtn);
+    wonBtn.addEventListener('click' , function(){
+      window.location.reload();
+    });
 
 };
 

@@ -129,6 +129,18 @@ h1 {
 
 }
 
+#won-game .wonBtn
+{
+    background-color: green;
+    border-radius: 5px;
+    position:relative;
+    top:50%;
+    left:40%;
+    height: 40px;
+    width: 130px;
+    color: #fff;
+    margin: 5px auto;
+}
 
 
 /* Animation */
