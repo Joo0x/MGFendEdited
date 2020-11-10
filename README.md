@@ -1,6 +1,6 @@
 # Memory Game Project
 ## Demo
-https://Joo0x.github.com/MGFendEdited
+https://Joo0x.github.com/MemoryGameProject
 
 ## Table of Contents
 
