@@ -1,6 +1,6 @@
 # Memory Game Project
 ## Demo
-https://Joo0x.github.com/MemoryGameProject
+https://Joo0x.github.io/MemoryGameProject
 
 ## Table of Contents
 
